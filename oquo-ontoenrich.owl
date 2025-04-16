@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://purl.org/oquo#"
+     xml:base="https://purl.org/oquo"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:om-1="http://www.wurvoc.org/vocabularies/om-1.8/"
+     xmlns:rdf1="http://www.cropontology.org/rdf/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
+     xmlns:QualityModel="http://purl.org/net/QualityModel#">
+    <owl:Ontology rdf:about="https://purl.org/oquo-ontoenrich">
+        <owl:imports rdf:resource="https://purl.org/oquo-core"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://purl.org/oquo#lexicalRegularityExhibitedBy -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/oquo#lexicalRegularityExhibitedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment>Link a lexical regularity with the classes that exhibit it.</rdfs:comment>
+        <rdfs:label>lexicalRegularityExhibitedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://purl.org/oquo#LexicalRegularity -->
+
+    <owl:Class rdf:about="https://purl.org/oquo#LexicalRegularity">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/EvaluationResult#EvaluationSubject"/>
+        <rdfs:comment>A group of tokens that are exhibited in more than one classes.</rdfs:comment>
+        <rdfs:label>LexicalRegularity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/oquo-ontoenrich#CpeMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-ontoenrich#CpeMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-ontoenrich#CpeMetricRawScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>Percentage of tokens of a class that are classes in other ontologies.</obo:IAO_0000115>
+        <rdf1:acronym>CPE</rdf1:acronym>
+        <rdfs:label>CPE Metric</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/oquo-ontoenrich#LocalityMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-ontoenrich#LocalityMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-ontoenrich#LocalityMetricRawScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>Value between 0 and 1 that measure how close are classes that exhibit a Lexical Regularity in the hierarchy.</obo:IAO_0000115>
+        <rdf1:acronym>LOC</rdf1:acronym>
+        <rdfs:label>Locality Metric</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/oquo-ontoenrich#ModularityMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-ontoenrich#ModularityMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-ontoenrich#ModularityMetricRawScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>Given certain set of Classes of Interest (CI), the metric calculates how the classes that exhibit a Lexical Regularity are descendant of the CIs</obo:IAO_0000115>
+        <rdf1:acronym>MOD</rdf1:acronym>
+        <rdfs:label>Modularity Metric</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://purl.org/oquo-ontoenrich#CpeMetricRawScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-ontoenrich#CpeMetricRawScale">
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <obo:IAO_0000115>Percentage of tokens of a class that are classes in other ontologies.</obo:IAO_0000115>
+        <rdfs:label>Cpe Metric Raw Scale</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/oquo-ontoenrich#LocalityMetricRawScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-ontoenrich#LocalityMetricRawScale">
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <obo:IAO_0000115>Value between 0 and 1 that measure how close are classes that exhibit a Lexical Regularity in the hierarchy.</obo:IAO_0000115>
+        <rdfs:label>Locality Metric Raw Scale</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/oquo-ontoenrich#ModularityMetricRawScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-ontoenrich#ModularityMetricRawScale">
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <obo:IAO_0000115>Given certain set of Classes of Interest (CI), the metric calculates how the classes that exhibit a Lexical Regularity are descendant of the CIs</obo:IAO_0000115>
+        <rdfs:label>Modularity Metric Raw Scale</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
