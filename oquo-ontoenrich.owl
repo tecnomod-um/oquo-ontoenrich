@@ -2,27 +2,31 @@
 <rdf:RDF xmlns="https://purl.org/oquo-ontoenrich#"
      xml:base="https://purl.org/oquo-ontoenrich"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:om-1="http://www.wurvoc.org/vocabularies/om-1.8/"
      xmlns:oquo="https://purl.org/oquo#"
+     xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:rdf1="http://www.cropontology.org/rdf/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:schema="http://schema.org/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
      xmlns:QualityModel="http://purl.org/net/QualityModel#"
      xmlns:oquo-oquare-qm="https://purl.org/oquo-oquare-qm#">
     <owl:Ontology rdf:about="https://purl.org/oquo-ontoenrich">
-        <owl:versionIRI rdf:resource="https://purl.org/oquo-ontoenrich/v2.0.1"/>
-        <owl:imports rdf:resource="https://purl.org/oquo-oquare-qm/v2.0.0"/>
-        <dc:contributor>Francisco Abad-Navarro</dc:contributor>
-        <dc:contributor>Manuel Quesada-Martinez</dc:contributor>
-        <dc:creator>Manuel Quesada-Martinez</dc:creator>
+        <owl:versionIRI rdf:resource="https://purl.org/oquo-ontoenrich/v2.0.2"/>
+        <owl:imports rdf:resource="https://purl.org/oquo-oquare-qm"/>
+        <dc:contributor rdf:resource="https://orcid.org/0000-0003-0201-3115"/>
+        <dc:contributor rdf:resource="https://orcid.org/0000-0003-0487-308X"/>
+        <dc:creator rdf:resource="https://orcid.org/0000-0003-0487-308X"/>
         <dc:description xml:lang="en">OQUO module that integrates OntoEnrich, a framework for the analysis of the lexical regularities of ontologies, i.e. groups of tokens that are exhibited by the labels of more than one class. The module defines the lexical regularity class and the property that links a lexical regularity with the classes that exhibit it, together with three metrics computed for each lexical regularity, namely CPE (percentage of tokens that are classes in other ontologies), locality (how close in the hierarchy are the classes that exhibit the regularity) and modularity (how the classes that exhibit the regularity descend from a set of classes of interest), and the raw scale of each metric.</dc:description>
         <dc:publisher>Universidad de Murcia</dc:publisher>
         <dc:title xml:lang="en">OQUO OntoEnrich module</dc:title>
@@ -30,7 +34,8 @@
         <terms:license rdf:resource="http://www.apache.org/licenses/LICENSE-2.0"/>
         <vann:preferredNamespacePrefix>oquo-ontoenrich</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://purl.org/oquo-ontoenrich#</vann:preferredNamespaceUri>
-        <rdfs:seeAlso rdf:resource="https://github.com/tecnomod-um/oquo-ontoenrich"/>
+        <dc:source rdf:resource="https://doi.org/10.1007/978-3-319-17966-7_25"/>
+        <schema:codeRepository rdf:resource="https://github.com/tecnomod-um/oquo-ontoenrich"/>
     </owl:Ontology>
     
 
@@ -95,6 +100,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115>Percentage of tokens of a class that are classes in other ontologies.</obo:IAO_0000115>
+        <dc:source rdf:resource="https://doi.org/10.1007/978-3-319-17966-7_25"/>
         <rdf1:acronym>CPE</rdf1:acronym>
         <rdfs:label>CPE Metric</rdfs:label>
     </owl:Class>
@@ -112,6 +118,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115>Labels by class ratio</obo:IAO_0000115>
+        <dc:source rdf:resource="https://doi.org/10.1007/978-3-319-17966-7_25"/>
         <rdf1:acronym>LBC</rdf1:acronym>
         <rdfs:label>labels by class metric</rdfs:label>
     </owl:Class>
@@ -139,6 +146,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115>Value between 0 and 1 that measure how close are classes that exhibit a Lexical Regularity in the hierarchy.</obo:IAO_0000115>
+        <dc:source rdf:resource="https://doi.org/10.1007/978-3-319-17966-7_25"/>
         <rdf1:acronym>LOC</rdf1:acronym>
         <rdfs:label>Locality Metric</rdfs:label>
     </owl:Class>
@@ -156,6 +164,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115>Given certain set of Classes of Interest (CI), the metric calculates how the classes that exhibit a Lexical Regularity are descendant of the CIs</obo:IAO_0000115>
+        <dc:source rdf:resource="https://doi.org/10.1007/978-3-319-17966-7_25"/>
         <rdf1:acronym>MOD</rdf1:acronym>
         <rdfs:label>Modularity Metric</rdfs:label>
     </owl:Class>
@@ -212,6 +221,18 @@
         <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
         <obo:IAO_0000115>Given certain set of Classes of Interest (CI), the metric calculates how the classes that exhibit a Lexical Regularity are descendant of the CIs</obo:IAO_0000115>
         <rdfs:label>Modularity Metric Raw Scale</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/oquo-ontoenrich#ontoenrich-software-agent -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-ontoenrich#ontoenrich-software-agent">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+        <obo:IAO_0000115 xml:lang="en">The software implementation of OntoEnrich, a framework for the analysis of the lexical regularities of ontologies, i.e. groups of tokens that are exhibited by the labels of more than one class. Given an ontology, it detects its lexical regularities and computes the OntoEnrich metrics, such as the CPE, locality and modularity of each lexical regularity. It acts as the agent of the evaluations whose results are described with this module.</obo:IAO_0000115>
+        <dc:source rdf:resource="https://doi.org/10.1007/978-3-319-17966-7_25"/>
+        <rdfs:comment xml:lang="en">Software that implements the OntoEnrich framework and computes its metrics.</rdfs:comment>
+        <rdfs:label>ontoenrich software agent</rdfs:label>
     </owl:NamedIndividual>
 </rdf:RDF>
 
